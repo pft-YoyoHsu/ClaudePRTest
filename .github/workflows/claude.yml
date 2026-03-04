@@ -34,9 +34,7 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           prompt: |
-            /review-pr REPO: ${{ github.repository }} PR_NUMBER: ${{ github.event.pull_request.number }}
-            Always leave one final PR summary comment even when there are no findings.
-            Include: review scope, blocking issues (if any), and suggested next steps.
+            say hello to the world
           claude_args: |
             --allowedTools "mcp__github_inline_comment__create_inline_comment"
             --model "claude-opus-4-6"

@@ -36,6 +36,5 @@ jobs:
           track_progress: true
           prompt: |
             say hi
-            --comment
           claude_args: |
             --model "claude-opus-4-6"

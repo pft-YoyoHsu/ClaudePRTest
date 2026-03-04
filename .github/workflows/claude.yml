@@ -26,20 +26,20 @@ jobs:
       id-token: write
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          fetch-depth: 0
 
       - name: PR Review with Progress Tracking
-        uses: anthropics/claude-code-action@01e756b34ef7a1447e9508f674143b07d20c2631
+        uses: anthropics/claude-code-action@v1
+        continue-on-error: true
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           track_progress: true 
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           prompt: |
-            REPO: ${{ github.repository }}
             PR NUMBER: ${{ github.event.pull_request.number }}
             Review this PR
           claude_args: |
-            --allowedTools "mcp__github_inline_comment__create_inline_comment"
-            --model "claude-opus-4-6"
+            --allowedTools "Read,Glob,Grep,LS,Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr checks:*),Bash(cat:*),Bash(git diff:*),Bash(git log:*),Bash(git show:*),Bash(wc:*),Bash(head:*),Bash(tail:*)"
             

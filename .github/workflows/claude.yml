@@ -35,16 +35,7 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           track_progress: true
           prompt: |
-            REPO: ${{ github.repository }}
-            PR NUMBER: ${{ github.event.pull_request.number }}
-
-            Please review this pull request with a focus on:
-            - Code quality and best practices(Next.js, Typescript)
-            - Potential bugs or issues
-            - Security implications
-            - Performance considerations
-
-            And provide constructive feedback in Traditional Chinese to help the author improve the code.
+            say hi
             --comment
           claude_args: |
             --model "claude-opus-4-6"

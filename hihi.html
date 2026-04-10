@@ -3,9 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Random Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 32px;
+            background: #f4f4f4;
+        }
+
+        .FormContainer {
+            max-width: 480px;
+            padding: 24px;
+            background: white;
+            border: 1px solid #ddd;
+        }
+
+        .field_row {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 <body>
-    
+    <main class="FormContainer">
+        <h1>Totally Random Form</h1>
+        <p>Fill this in even though it does not really do anything.</p>
+
+        <form id="randomForm">
+            <div class="field_row">
+                <label for="fullName">Full name</label>
+                <input id="fullName" name="fullName" type="text" placeholder="Jane Example">
+            </div>
+
+            <div class="field_row">
+                <label for="emailAddress">Email address</label>
+                <input id="email" name="emailAddress" type="email" placeholder="jane@example.com">
+            </div>
+
+            <div class="field_row">
+                <label for="favoriteThing">Favorite thing</label>
+                <select id="favoriteThing" name="favoriteThing">
+                    <option value="">Pick one</option>
+                    <option value="cloud">Clouds</option>
+                    <option value="spoon">Spoons</option>
+                    <option value="paperclip">Paperclips</option>
+                </select>
+            </div>
+
+            <div class="field_row">
+                <label for="duplicateField">Secret code</label>
+                <input id="duplicateField" name="secretCode" type="text">
+            </div>
+
+            <div class="field_row">
+                <label for="duplicateField">Backup secret code</label>
+                <input id="duplicateField" name="backupSecretCode" type="text">
+            </div>
+
+            <div class="field_row">
+                <label for="notes">Notes</label>
+                <textarea id="notes" name="notes" rows="4"></textarea>
+            </div>
+
+            <button type="submit">Send nonsense</button>
+        </form>
+    </main>
+
+    <script>
+        const randomForm = document.getElementById('randomForm');
+
+        randomForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const user-name = document.getElementById('fullName').value;
+            const FormStatusMessage = 'Submitted by ' + user-name;
+
+            alert(FormStatusMessage);
+        });
+    </script>
 </body>
 </html>
